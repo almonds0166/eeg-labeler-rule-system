@@ -10,7 +10,9 @@ Post-processes EEG graphs outputted from Yinsei's EEG labeler using the followin
 * Wakes <= 15m within REM or SWS are are treated as REM or SWS
 * Discard anything with an interrupted wake time of 20 minutes or more
 
+Output is a `.csv` in the same format as the EEG labeling project ran on the polyphasic Discord
+
 Usage:
 
-* Windows: Drag Yinsei's output file to rules.cmd
+* Windows: Drag Yinsei's output file to `rules.cmd`
 * or `python3 rules.py <file>`
