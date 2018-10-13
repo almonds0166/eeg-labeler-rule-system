@@ -13,4 +13,4 @@ Post-processes EEG graphs outputted from Yinsei's EEG labeler using the followin
 Usage:
 
 * Windows: Drag Yinsei's output file to rules.cmd
-* Linux: `python3 rules.py <file>`
+* \*nux: `python3 rules.py <file>`
