@@ -227,8 +227,8 @@ def forward(ell):
          return ell
    return False
 
-# Input is first two blocks, which is theoretically AWAKE and LIGHT
-# Get WAKE and NREM1-2 time, final time for next cycle
+# Input is list of (stage, duration), which theoretically starts with AWAKE and LIGHT
+# Returns WAKE and NREM1-2 end times, total next end time, remaining part of the list
 def parse_left(ell):
    left, right = ell[0:2]
    if left[0] == AWAKE:
@@ -317,7 +317,9 @@ for ell in ells:
       if not temp: break
       ell = temp
       count += 1
-   if ell == ['Discard']: continue # Don't even bother putting it in the CSV
+   if ell == ['Discard']: # Don't even bother putting it in the CSV
+      del extra[0]
+      continue
    temp = extra[0] + ',,' + csvize(ell)
    light_diff = stage_diff(before, ell, LIGHT)
    sws_diff   = stage_diff(before, ell,   SWS)
